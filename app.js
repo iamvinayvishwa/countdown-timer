@@ -1,28 +1,53 @@
-const endDate = "26 October 2024 12:00 AM"
-
-document.getElementById("end-date").innerText = endDate;
-const inputs = document.querySelectorAll("input")
-
-function clock() {
-    const end = new Date(endDate)
-    const now = new Date()
-    const diff = (end - now)/1000;  // converted in seconds;
-    console.log(diff);
-    inputs[0].value = Math.floor(diff / 3600 /24);  //converted into days;
-    inputs[1].value = Math.floor(diff / 3600) % 24;
-    inputs[2].value = Math.floor(diff / 60) % 60;
-    inputs[3].value = Math.floor(diff) % 60;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-//initial call
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+.main {
+    width: 100%;
+    height: 100vh;
+    background: url('../image/1802071.webp') center center;
+    background-size: cover;
+}
 
-clock()
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+}
 
-//at every second call
+.title {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+}
 
-setInterval(
-    () => {
-        clock()
-    },
-    1000
-)
+.col {
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.col div {
+    width: 250px;
+    text-align: center;
+}
+
+input {
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: transparent;
+    border-radius: 5px;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+}
